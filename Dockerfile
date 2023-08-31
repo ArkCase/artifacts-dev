@@ -65,7 +65,6 @@ ENV CONF_TGT="${ARKCASE_CONF_DIR}/00-conf.zip"
 ARG PDFTRON_VER
 ARG PDFTRON_SRC
 ENV PDFTRON_TGT="${ARKCASE_CONF_DIR}/00-pdftron.zip"
-RUN prep-artifact "${PDFTRON_SRC}" "${PDFTRON_TGT}" "${PDFTRON_VER}"
 
 #
 # Add the local files we want in this deployment
@@ -76,8 +75,9 @@ ADD file "${FILE_DIR}"
 # Pull the base artifacts as required
 #
 RUN set -euo pipefail ; \
-    if [ ! -f "${CONF_TGT}" ] ; then prep-artifact "${CONF_SRC}" "${CONF_TGT}" "${CONF_VER}" ; fi ; \
-    if [ ! -f "${ARKCASE_TGT}" ] ; then prep-artifact "${ARKCASE_SRC}" "${ARKCASE_TGT}" "${ARKCASE_VER}" ; fi ;
+    if [ ! -f "${PDFTRON_TGT}" ] ; then prep-artifact "${PDFTRON_SRC}" "${PDFTRON_TGT}" "${PDFTRON_VER}" ; fi && \
+    if [ ! -f "${CONF_TGT}" ] ; then prep-artifact "${CONF_SRC}" "${CONF_TGT}" "${CONF_VER}" ; fi && \
+    if [ ! -f "${ARKCASE_TGT}" ] ; then prep-artifact "${ARKCASE_SRC}" "${ARKCASE_TGT}" "${ARKCASE_VER}" ; fi
 
 #
 # The last command, to make sure everything is kosher
