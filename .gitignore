@@ -1,3 +1,9 @@
 **/.sw?
 **/.*.sw?
 test
+
+file/**/*.zip
+file/**/*.ver
+file/**/*.sum
+file/**/*.war
+file/**/*.jar

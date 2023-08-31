@@ -70,7 +70,7 @@ RUN prep-artifact "${PDFTRON_SRC}" "${PDFTRON_TGT}" "${PDFTRON_VER}"
 #
 # Add the local files we want in this deployment
 #
-ADD files "${FILE_DIR}"
+ADD file "${FILE_DIR}"
 
 #
 # Pull the base artifacts as required
