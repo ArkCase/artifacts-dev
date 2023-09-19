@@ -103,6 +103,8 @@ global:
     core:
       app:
         artifacts:
+          # This pull policy ensures that no attempt is made to pull this image externally
+          pullPolicy: Never
           registry: "test"
           repository: "ACS-1344"
           tag: "latest"
