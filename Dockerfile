@@ -4,7 +4,7 @@
 ARG REG="public.ecr.aws"
 ARG EXT="core"
 ARG REP="arkcase/artifacts-${EXT}"
-ARG VER="2023.01.05"
+ARG VER="2023.01.06"
 ARG BLD="01"
 ARG TAG="${VER}-${BLD}"
 
