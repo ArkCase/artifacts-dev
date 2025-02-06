@@ -2,21 +2,22 @@
 # Basic Definitions
 #
 ARG EXT="core"
-ARG VER="2023.01.06"
+ARG VER="24.09.00"
 
 #
 # Basic Parameters
 #
-ARG REG="public.ecr.aws"
-ARG REP="arkcase/artifacts-${EXT}"
-ARG BASE_IMAGE="${REG}/${REP}:${VER}"
+ARG BASE_REGISTRY="${PRIVATE_REGISTRY}"
+ARG BASE_REPO="arkcase/artifacts-${EXT}"
+ARG BASE_VER="${VER}"
+ARG BASE_VER_PFX=""
+ARG BASE_IMG="${BASE_REGISTRY}/${BASE_REPO}:${BASE_VER_PFX}${BASE_VER}"
 
-FROM "${BASE_IMAGE}"
+FROM "${BASE_IMG}"
 
 #
 # Basic Parameters
 #
-
 LABEL ORG="ArkCase LLC" \
       MAINTAINER="Armedia Development Team <devops@armedia.com>" \
       APP="ArkCase Development Deployer" \
